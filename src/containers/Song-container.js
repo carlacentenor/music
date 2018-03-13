@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import {increment, decrement} from '../actions/actions'
 import Song from '../components/Song' 
-
+import {bindActionCreators} from 'redux'
 
 function mapStateToProps(state) {
   return {
@@ -11,12 +11,8 @@ function mapStateToProps(state) {
 
 }
 function mapDispatchToProps(dispatch){
- return {
-
-  onIncrement: () => {
-    dispatch(increment);
-  },
- }
+ return bindActionCreators({onIncrement : increment},dispatch)
+  
 }
 
 const VotesUpdate = connect(mapStateToProps, mapDispatchToProps)(Song)

@@ -1,9 +1,9 @@
 export const increment = (id) => ({
   type: 'INCREMENT',
-  id
+  payload: id
 });
 
-export const increment = (id) => ({
+export const decrement = (id) => ({
   type: 'DECREMENT',
   id
 });

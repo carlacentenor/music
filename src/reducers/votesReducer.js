@@ -1,4 +1,5 @@
 const initialVotes = {
+  id:'',
   votes :0
 };
 
