@@ -1,5 +1,5 @@
 import React from 'react'
-import Song from '../containers/Song-container'
+import Song from './Song'
 
 
 

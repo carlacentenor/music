@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PreviewSong from './PreviewSong';
-import ListSong from './ListSong';
+import ListSong from '../containers/Song-container';
 
 class Ranking extends Component {
   render() {

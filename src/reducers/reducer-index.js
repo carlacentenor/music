@@ -5,7 +5,7 @@ import votesReducer from './votesReducer';
 
 const rootReducer = combineReducers ({
   songs : reducerSongs,
-  votes : votesReducer
+  songSelect : votesReducer,
   
 });
 

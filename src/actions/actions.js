@@ -1,6 +1,6 @@
-export const increment = (id) => ({
+export const increment = (song) => ({
   type: 'INCREMENT',
-  payload: id
+  payload: song
 });
 
 export const decrement = (id) => ({
