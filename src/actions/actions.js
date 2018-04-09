@@ -1,9 +1,25 @@
-export const increment = (song) => ({
+export const increment = (id) => ({
   type: 'INCREMENT',
-  payload: song
+  payload: id
 });
 
 export const decrement = (id) => ({
   type: 'DECREMENT',
-  id
+  payload: id
+});
+
+export const select = (object) => ({
+  type: 'SELECT',
+  payload: object
+});
+
+export const next = (id) => ({
+  type: 'NEXT',
+  payload:id
+});
+
+
+export const before = (id) => ({
+  type: 'BEFORE',
+  payload:id
 });

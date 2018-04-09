@@ -1,24 +1,36 @@
 import { connect } from 'react-redux'
-import {increment, decrement} from '../actions/actions'
-import ListSong from '../components/ListSong' 
-import {bindActionCreators} from 'redux'
+ import { increment, decrement,select } from '../actions/actions'
+import ListSong from '../components/ListSong'
+
+// import { bindActionCreators } from 'redux'
 
 function mapStateToProps(state) {
-  console.log(state);
+
   return {
-    songs : state.songs,
-    song:state.songSelect,
-  
-    
+    listsongs: state.songs,
   }
 
 }
-function mapDispatchToProps(dispatch){
- 
- return bindActionCreators({onIncrement : increment},dispatch)
-  
-}
 
-const VotesUpdate = connect(mapStateToProps, mapDispatchToProps)(ListSong)
+const mapDispatchToProps = (dispatch) => ({
+  onIncrement: (id) => {
+    dispatch(increment(id))
+  },
+  onDecrement: (id) => {
+    dispatch(decrement(id))
+  },
+  onSelect: (image,title,id) => {
+    dispatch(select(image,title,id))
+  },
+  getMusic: () => {
+    
+   
+     
+  },
+
+});
+
+
+const VotesUpdate = connect(mapStateToProps,mapDispatchToProps)(ListSong)
 
 export default VotesUpdate

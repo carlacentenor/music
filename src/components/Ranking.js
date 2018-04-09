@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
-import PreviewSong from './PreviewSong';
+import React from 'react';
+import PreviewSong from '../containers/preview-container';
 import ListSong from '../containers/Song-container';
 
-class Ranking extends Component {
-  render() {
+const Ranking =()=> {
+
     return (
       <div className="Ranking">
       <PreviewSong/>
-      <ListSong/>
+      <ListSong />
+
       </div>
     );
-  }
+  
 }
 
 export default Ranking;
