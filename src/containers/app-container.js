@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
- import {showList } from '../actions/actions'
+import { showList } from '../actions/actions'
 import App from '../App'
 import axios from 'axios';
 
@@ -12,17 +12,23 @@ function mapStateToProps(state) {
 
 
 const mapDispatchToProps = (dispatch) => ({
-  
   getMusic: (data) => {
-    axios.get('https://api.spotify.com/v1/albums/3MfNbOJuFb5H4CjrT49oiI/tracks')
-    .then((response) => {
-        dispatch( showList(response.data.items) ) 
-    }) 
+    axios({
+      method: 'GET',
+      url: 'https://api.spotify.com/v1/albums/3MfNbOJuFb5H4CjrT49oiI/tracks',
+      headers: {
+        'Authorization': 'Bearer BQDwBOKT4xTynnmBkW_crhyCal3XVAttErwwtUpE_nT8_fJoyKA-IXk8gRcYSoxOQ1whQHgQIT8vbbaeEFvxxM5B4EquhnUwsHWo6IwUzEVwYUhR9mha5B3jA02lkoTNQrUuGQOOCStPw4x2KxqID9owLV2GHpXpUrB-dNkmZyRq7ayWmK6TW6cLoNek3d38MWYP7Hu0BPa0upywIY9pV4BqbY9K7JxRf5BItTAobP_LQQ8gTSlD4uY5itDnKqEvwB9AhKBncvPNEl5PM9X1PAGFjAA',
+        'Accept': 'application/json'
+      },
+    }).then((response) => {
+      dispatch(showList(response.data.items))
+    })
+
   },
 
 });
 
 
-const AppGeneral = connect(mapStateToProps,mapDispatchToProps)(App)
+const AppGeneral = connect(mapStateToProps, mapDispatchToProps)(App)
 
 export default AppGeneral
