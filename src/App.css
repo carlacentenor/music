@@ -1,17 +1,55 @@
-.w500{
+*{
+  background:#282828;
+  
+}
+
+.w500 {
   width: 500px;
 }
 
-li{
+.song {
   list-style: none;
+  color: white;
+  transition: 1s;
+  
 }
 
-.h250{
+
+
+
+.h250 {
   height: 250px;
 }
 
-.image-box{
+.image-box {
   padding: 1em;
   width: 150px;
   height: 150px;
+}
+
+.btn-song {
+  background-color: transparent;
+  color: grey;
+  font-size: 3em;
+}
+
+.play {
+  background-color: transparent;
+  border: none;
+  padding: 0
+}
+
+.icon-play {
+  font-size: 1em;
+  color: grey;
+}
+
+.song:hover,.icon-play:hover,.btn-song {
+  
+  color: #1ED760;
+  cursor: pointer;
+}
+
+.preview{
+  color: rgb(187, 191, 196);
 }

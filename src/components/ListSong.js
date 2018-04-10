@@ -21,7 +21,7 @@ const ListSong = ({listsongs , onIncrement, onDecrement , onSelect,data}) =>{
   
   return(
 
-  <ul className="p-0">
+  <ul className="p-0 ">
     {data.map((song,index) =>
       <Song 
          key={song.track_number}
