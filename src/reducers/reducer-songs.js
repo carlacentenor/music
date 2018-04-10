@@ -11,6 +11,7 @@
 
   const initialState = {
     data : [],
+    album:[],
       songs : SONG,
       preview: {id:0,track_number:0 ,text:'music', votes:0 , image: 'images/img0.jpg'},
       songId : 0,
@@ -24,6 +25,8 @@
     switch (action.type) {
       case 'SHOW_LIST':
       return {...state , data: action.payload};
+      case 'SEARCH_ALBUM':
+      return {...state , album: action.payload};
 
       case 'INCREMENT':
         return { ...state, songs:state.songs.map(song =>{

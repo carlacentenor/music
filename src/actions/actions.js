@@ -30,3 +30,8 @@ export const showList=(data)=> ({
   payload: data
 })
  
+export const searchAlbum=(data)=> ({
+  type: 'SEARCH_ALBUM',
+  payload: data
+})
+ 

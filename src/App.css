@@ -14,7 +14,9 @@
   
 }
 
-
+.white{
+  color: white;
+}
 
 
 .h250 {
@@ -52,4 +54,12 @@
 
 .preview{
   color: rgb(187, 191, 196);
+}
+
+.inline{
+  display: inline-block;
+}
+
+.w300{
+  width: 300px;
 }
