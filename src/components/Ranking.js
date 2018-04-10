@@ -2,12 +2,12 @@ import React from 'react';
 import PreviewSong from '../containers/preview-container';
 import ListSong from '../containers/Song-container';
 
-const Ranking =()=> {
+const Ranking =({data})=> {
 
     return (
       <div className="Ranking">
       <PreviewSong/>
-      <ListSong />
+      <ListSong data={data} />
 
       </div>
     );

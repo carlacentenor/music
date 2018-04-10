@@ -2,11 +2,8 @@ import React from 'react'
 import Song from './Song'
 
 
-const ListSong = ({listsongs , onIncrement, onDecrement , onSelect}) =>{
-
- 
-   
-  
+const ListSong = ({listsongs , onIncrement, onDecrement , onSelect,data}) =>{
+  console.log(data)
 
 
    listsongs.songs.sort(
@@ -25,19 +22,21 @@ const ListSong = ({listsongs , onIncrement, onDecrement , onSelect}) =>{
   return(
 
   <ul className="p-0">
-    {listsongs.songs.map((song,index) =>
-      <Song
-        key={song.id}
-        text = {song.text}
-        id = {song.id}
-        votes = {song.votes}
-        onIncrement = {onIncrement}
-        onDecrement = {onDecrement}
-        onSelect = {onSelect}
-        image = {song.image}
+    {data.map((song,index) =>
+      <Song 
+         key={song.track_number}
+         text = {song.name}
+         id = {song.track_number}
+        votes = {song.duration_ms}
+        track = {song.preview_url}
+        // onIncrement = {onIncrement}
+        // onDecrement = {onDecrement}
+         onSelect = {onSelect}
+        // image = {song.image}
         object = {song}
       />
-    )}
+          )}
+          
   </ul>
 )
 }

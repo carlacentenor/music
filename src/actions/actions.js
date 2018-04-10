@@ -23,3 +23,10 @@ export const before = (id) => ({
   type: 'BEFORE',
   payload:id
 });
+
+
+export const showList=(data)=> ({
+  type: 'SHOW_LIST',
+  payload: data
+})
+ 

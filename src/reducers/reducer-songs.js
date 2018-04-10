@@ -1,4 +1,4 @@
-import axios from 'axios';
+
   const SONG = [
     {id:1,text: 'Canción A', votes: 34, image : 'images/img1.jpg'  },
     {id:2,text: 'Canción B', votes: 32, image: 'images/img2.jpg' },
@@ -7,28 +7,24 @@ import axios from 'axios';
     {id:5,text: 'Canción E', votes: 15, image : 'images/img5.jpg'},
   ];
 
-const prueba =[];
-  axios.get('https://api.spotify.com/v1/albums/3MfNbOJuFb5H4CjrT49oiI/tracks')
-  .then(function (response) {
-   response.data.items.forEach(element => {
-   prueba.push(element)  
-   });
-      })
-  
-console.log(prueba.length)
-  
+
 
   const initialState = {
+    data : [],
       songs : SONG,
-      preview: {id:0, text:'music', votes:0 , image: 'images/img0.jpg'},
+      preview: {id:0,track_number:0 ,text:'music', votes:0 , image: 'images/img0.jpg'},
       songId : 0,
       next : {id:1,text: 'Canción A', votes: 34, image : 'images/img1.jpg' }
 
   }
 
   const songReducer = (state = initialState, action) => {
-    console.log(action.payload);
+    console.log(action.type);
+    
     switch (action.type) {
+      case 'SHOW_LIST':
+      return {...state , data: action.payload};
+
       case 'INCREMENT':
         return { ...state, songs:state.songs.map(song =>{
           if(song.id === parseInt(action.payload,10)){
@@ -49,23 +45,23 @@ console.log(prueba.length)
         return { ...state,preview:action.payload   };
 
         case 'NEXT':
-        return { ...state ,preview: function(){ for(let i=0 ; i<SONG.length ;i++){
-          if(SONG[i].id === action.payload){
-            return SONG[i]
+        return { ...state ,preview: function(){ for(let i=0 ; i<state.data.length ;i++){
+          if(state.data[i].track_number === action.payload){
+            return state.data[i]
           }
-          else if(SONG[i].id>=SONG.length){
-            return SONG[0]
+          else if(state.data[i].track_number>=state.data.length){
+            return state.data[0]
           }
          
         }}()  };
         
         case 'BEFORE':
-        return { ...state ,preview: function(){ for(let i=0 ; i<SONG.length ;i++){
-          if(SONG[i].id === action.payload){
-            return SONG[i]
+        return { ...state ,preview: function(){ for(let i=0 ; i<state.data.length ;i++){
+          if(state.data[i].track_number === action.payload){
+            return state.data[i]
           }
           else if(action.payload<=0){
-            return SONG[SONG.length-1]
+            return state.data[state.data.length-1]
           }
          
         }}()  };
@@ -76,6 +72,5 @@ console.log(prueba.length)
 
   }
 
-console.log(SONG.length)
-  
+
 export default songReducer
